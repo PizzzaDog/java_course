@@ -12,6 +12,6 @@ public class AtmPkao implements Atm {
     }
 
     public void getStrangeCash(String currency, Integer amount) {
-        System.out.println("Получите свои money " + amount + " " + currency);
+        System.out.println("Получите свои " + amount + " " + currency);
     }
 }
