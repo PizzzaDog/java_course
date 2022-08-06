@@ -1,8 +1,7 @@
 package org.axample.lesson3;
 
+import java.io.IOException;
+
 public interface Exchanger {
-
-    //TODO void or not?
-    void exchange(Currency from, Currency to, Double amount);
-
+    Double exchange(Currency from, Currency to, Double amount) throws IOException;
 }

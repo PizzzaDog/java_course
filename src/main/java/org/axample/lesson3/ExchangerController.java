@@ -1,14 +1,26 @@
 package org.axample.lesson3;
 
-import org.axample.lesson3.commands.Command;
+import org.axample.lesson3.commands.*;
+
+import java.io.IOException;
 
 public class ExchangerController {
 
-    //TODO think about it
-    private ExchangerImpl exchanger;
+    private ExchangerImpl exchanger = new ExchangerImpl();
 
-    //TODO fix this
-    public void start(Command command) {
+    public ExchangerController() throws IOException {
+    }
+
+    public void UI(Command command) {
         command.execute();
+    }
+
+    public void cashExchange(Currency currencyFrom,Currency currencyTo, Double cashAmount) throws IOException {
+        Double result = exchanger.exchange(currencyFrom,currencyTo,cashAmount);
+        if (result != null) {
+            this.UI(new SuccessCommand());
+        } else {
+            this.UI(new ErrorCommand());
+        }
     }
 }
